@@ -25,8 +25,13 @@ gravity_scale = 0.0
 script = SubResource("GDScript_laxl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_71bwk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.68, 4.68)
 shape = SubResource("CircleShape2D_gq3c2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

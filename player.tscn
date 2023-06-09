@@ -1,13 +1,28 @@
 [gd_scene load_steps=4 format=3 uid="uid://2ebhojkvojbi"]
 
 [ext_resource type="Texture2D" uid="uid://mlixqb5ted12" path="res://Art/ufoGreen.png" id="1_71bwk"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_njtoh"]
+
+[sub_resource type="GDScript" id="GDScript_laxl5"]
+script/source = "extends RigidBody2D
+
+var force = 500
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"move_right\"):
+		apply_force(Vector2(force, 0))
+	if Input.is_action_pressed(\"move_left\"):
+		apply_force(Vector2(-force, 0))
+	if Input.is_action_pressed(\"move_up\"):
+		apply_force(Vector2(0, -force))
+	if Input.is_action_pressed(\"move_down\"):
+		apply_force(Vector2(0, force))
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gq3c2"]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1_njtoh")
+script = SubResource("GDScript_laxl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_71bwk")
